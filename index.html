@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Piano 88 Keys</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/tone@15.1.22/build/Tone.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>🎹 Virtual Piano</h1>
+        <p>Đàn piano điện tử 88 phím</p>
+
+        <div class="status">
+            <span id="statusDot" class="loading"></span>
+            <span id="statusText">Đang chờ khởi động</span>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="piano-section">
+            <div class="section-heading">
+                <h2>Bàn phím piano</h2>
+                <span>88 phím · A0 – C8</span>
+            </div>
+
+            <p class="hint">
+                Dùng chuột hoặc chạm vào phím đàn để chơi.
+                Cuộn ngang để xem toàn bộ 88 phím.
+            </p>
+
+            <div class="piano-scroll">
+                <div id="piano" class="piano"></div>
+            </div>
+
+            <div class="keyboard-info">
+                <strong>Bàn phím máy tính:</strong>
+                A W S E D F T G Y H U J K
+            </div>
+        </section>
+
+        <section class="composer-section">
+
+            <h2>🎼 Sáng tác nhạc</h2>
+
+            <p class="hint">
+                Nhập nốt nhạc, hợp âm, dấu lặng và độ dài từng nốt.
+            </p>
+
+            <textarea
+                id="musicInput"
+                spellcheck="false"
+                placeholder="Ví dụ:
+C4:1 E4:1 G4:2
+[C4,E4,G4]:2
+R:1
+C#5:1 Db5:1"
+            ></textarea>
+
+            <div class="tempo-box">
+                <label for="tempo">Tốc độ:</label>
+
+                <input
+                    type="range"
+                    id="tempo"
+                    min="40"
+                    max="200"
+                    value="88"
+                >
+
+                <strong id="tempoValue">88 BPM</strong>
+            </div>
+
+            <div class="controls">
+                <button id="playButton" class="play">
+                    ▶ Phát nhạc
+                </button>
+
+                <button id="stopButton" class="stop">
+                    ■ Dừng
+                </button>
+
+                <button id="exampleButton" class="example">
+                    ♪ Bản mẫu
+                </button>
+
+                <button id="clearButton" class="clear">
+                    ✕ Xóa
+                </button>
+            </div>
+
+            <p id="playStatus">● Đang chờ</p>
+
+        </section>
+
+        <section class="guide-section">
+            <h2>📖 Hướng dẫn viết nhạc</h2>
+
+            <div class="guide-grid">
+
+                <div class="guide-item">
+                    <strong>C4:1</strong>
+                    <span>Nốt đen – 1 phách</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>C4:2</strong>
+                    <span>Nốt trắng – 2 phách</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>C4:4</strong>
+                    <span>Nốt tròn – 4 phách</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>C4:0.5</strong>
+                    <span>Nốt móc đơn – nửa phách</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>C4:0.25</strong>
+                    <span>Nốt móc kép – 1/4 phách</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>R:1</strong>
+                    <span>Nghỉ 1 phách</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>[C4,E4,G4]:1</strong>
+                    <span>Đánh hợp âm cùng lúc</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>C#4:1</strong>
+                    <span>Nốt thăng</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>Db4:1</strong>
+                    <span>Nốt giáng</span>
+                </div>
+
+                <div class="guide-item">
+                    <strong>C4:1:0.5</strong>
+                    <span>Âm lượng 50%</span>
+                </div>
+
+            </div>
+
+            <p class="hint">
+                Các nốt được ngăn cách bằng dấu cách hoặc xuống dòng.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        Virtual Piano 88 Keys · Made with JavaScript
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
